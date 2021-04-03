@@ -1,0 +1,80 @@
+/*'bn' can be decrypted as 'my' as well as 'am' so I've
+included the key which gets maximum meaningful words & still if
+key includes same number of meaningful words it would print both cases*/
+#include<iostream.h>
+#include<string.h>
+#include<conio.h>
+#include<stdio.h>
+
+long int count1=1,key,k;
+char str[100];
+
+void main()
+{FILE *fp;
+clrscr();
+cout<<"Enter the ENCRYPTED STRING:";
+gets(str);
+
+fp=fopen("data.txt","r+");
+rewind(fp);
+if(fp!=NULL)
+{for(key=1,k=1;key<27;key++)
+	{for(long int i=0;str[i]!='\0';i++)
+		{
+		if((str[i]==97||str[i]==65))
+			{	if(str[i]==97)
+					{str[i]=123;}
+
+				else if(str[i]==65)
+					{str[i]=91;}
+				str[i]=str[i]-k;           }
+
+		else if((str[i]>65 && str[i]<=90) || (str[i]>97 && str[i]<=122))
+			str[i]=str[i]-k;
+		}
+
+		//cout<<str<<"\n";    flag 1
+
+
+			char dicword[30]={'\0'},word[30]={'\0'};
+			long int count=0,p,q,r;
+			for(p=0;str[p]!='\0';)
+				{
+				for(r=p,q=0;(str[r]!=' '&& str[r]!='.' && str[r]!='\0');r++,q++)
+					{word[q]=str[r];}      //fatching words from string
+					word[q]='\0';          //to check in dictionary
+
+				while(!feof(fp))
+					{
+					fscanf(fp,"%s",dicword);
+					//cout<<word<<" word of str\n";      //flag 2
+					//cout<<dicword<<" word of dic\n";
+					if(word[0]==dicword[0] && strcmpi(word,dicword)==0)
+						{count++;
+						//cout<<dicword<<" word of dic\n"; //flag 3
+						}
+					for(int s=0;s<30;s++)
+						dicword[s]='\0';//cleaning arrays
+					}
+
+				for(int s=0;s<30;s++)
+				word[s]='\0';
+
+				p=r+1;
+				rewind(fp);
+				}
+
+		if(count>=count1 )
+			{count1=count;
+			cout<<"\nDECTRYPTED STRING:"<<str<<"\n";}
+
+	} //closing brace of first for loop
+}         //closing brace of if
+else
+{printf("ERROR!\n\n");   }
+fclose(fp);
+//cout<<"\n"<<count1;    // flag 4
+cout<<"\n\n\n\n\nDeveloped by:Chirag vaghela\n";
+cout<<"(Contact Details:Chiragvaghela10@ymail.com)";
+getch();
+}

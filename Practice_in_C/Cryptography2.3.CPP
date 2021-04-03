@@ -1,0 +1,133 @@
+/*
+/Def :(Definition Of The Program)
+To decrypt the string entered by user without asking about key for it by the help of dictionary file(.txt file)
+//Name:(Definition Writer)
+Aarsh Shah
+//Name:(First Developer)
+Chirag Vaghela
+//Time:(Latest time of Job done By First Developer)
+Chirag Vaghela
+//Name:(Last Developer)
+Chirag Vaghela
+//Time:(Latest time of Job done By Last Developer)
+Chirag Vaghela
+//Status: Completed/Not Completed
+Completed
+
+/*'bn' can be decrypted as 'my' as well as 'am' so I've
+included the key which gets maximum meaningful words & still if
+key includes same number of meaningful words it would print both cases*/
+//#include<iostream>
+#include<string.h>
+//#include<conio>
+#include<stdio.h>
+#include<ctype.h>
+using namespace std;
+long int count1=1,key,k;
+char str[100];
+
+/*ostream & greeting(ostream & output)
+{
+return output<<"\n\n\n\n\n\n\n\n\n\n\n";
+}
+*/
+int main()
+{FILE *fp;
+//clrscr();
+printf("Enter the ENCRYPTED STRING:");
+//cout<<"Enter the ENCRYPTED STRING:";
+gets(str);
+
+char final_string[100]={'\0'};
+fp=fopen("data.txt","r+");
+rewind(fp);
+if(fp!=NULL)
+{for(key=1,k=1;key<27;key++)
+	{for(long int i=0;str[i]!='\0';i++)
+		{
+		if((str[i]==97||str[i]==65))
+			{	if(str[i]==97)
+					{str[i]=123;}
+
+				else if(str[i]==65)
+					{str[i]=91;}
+				str[i]=str[i]-k;           }
+
+		else if((str[i]>65 && str[i]<=90) || (str[i]>97 && str[i]<=122))
+			str[i]=str[i]-k;
+		}
+        //printf("%s\n",str);   flag 1
+		//cout<<str<<"\n";    flag 1
+
+
+			char dicword[30]={'\0'},word[30]={'\0'};
+			long int count=0,p,q,r;
+			for(p=0;str[p]!='\0';)
+				{
+				for(r=p,q=0;(str[r]!=' '&& str[r]!='.' && str[r]!='\0');r++,q++)
+					{word[q]=str[r];}      //fatching words from string
+					word[q]='\0';          //to check in dictionary
+				while(!feof(fp))
+					{
+					fscanf(fp,"%s",dicword);
+					//printf("%s word of str\n",word);
+					//printf("%s word of dic\n",dicword);
+					//cout<<word<<" word of str\n";      //flag 2
+					//cout<<dicword<<" word of dic\n";
+					if(word[0]==dicword[0] && strcmpi(word,dicword)==0)
+						{count++;
+						//printf("%s : word of dictionary",dicword);
+						//cout<<dicword<<" word of dic\n"; //FLAG 3
+						}
+					for(int s=0;s<30;s++)
+						dicword[s]='\0';//cleaning dictionary word array.
+
+					}
+
+				for(int s=0;s<30;s++)
+				word[s]='\0';   //cleaning word array.
+
+				p=r+1;
+				rewind(fp);
+				}
+
+		if(count>=count1 )
+			{count1=count;
+			strcpy(final_string,str);
+			//printf("\npossible strings:%s\n",str);
+			//cout<<"\npossible strings:"<<str<<"\n";} //FLAG 5
+            }
+	} //closing brace of first for loop
+
+printf("\nFINAL DECRYPTED STRING:%s",final_string);
+//cout<<"\nFINAL DECRYPTED STRING:"<<final_string;
+}
+     //closing brace of if
+else
+	{printf("ERROR!\n\n");   }
+fclose(fp);
+//cout<<"\n"<<count1;    // flag 4
+/*cout<<greeting<<greeting<<greeting<<greeting;
+cout<<"Developed by:CHIRAG VAGHELA\n";
+cout<<"(Contact Details:Chiragvaghela10@ymail.com)";
+*///getch();
+return 0;
+}
+
+
+/****************************
+flag 1:To check how keys are implemented
+
+flag 2:To check how words are being fatched from encrypted string
+and how words are fatched from dictionary
+
+FLAG 3:To enable and disable to see which words are matching with dictionary
+coming in between the entire process.
+x
+flag 4:To check how many words of final decrpyted string are matching
+with dictionary words.
+
+FLAG 5:To enable and disable to see both cases of same match
+(for details see comments on top).
+
+****************************/

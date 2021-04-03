@@ -1,0 +1,2 @@
+Q.1 When both backend and frontend run properly independently, how to join them?
+Q.2 In frontend we're creating instance and initializing backend because front need to be in forever loop. But is it good implementation? Also, can we implement vice versa?

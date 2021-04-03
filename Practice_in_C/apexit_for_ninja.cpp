@@ -1,0 +1,57 @@
+#include<stdio.h>
+int main()
+	{
+		long int a=1,c=1,fab,fac,num,k,l,div,arr[20],i,t,flag,brr[20],j,number;
+		scanf("%ld",&t);
+		while(t--)
+			{
+				scanf("%ld",&num);
+				number=num;
+				div=2;
+				i=0;
+				while(num!=1)
+					{
+						if(num%div==0)
+							{
+								arr[i]=div;
+								num=num/div;
+								div--;i++;
+							}
+						div++;
+					}
+				k=i;
+				flag=0;
+				a=c=1;
+				while(flag!=1)
+					{
+						fab=a+c;
+						a=c;
+						c=fab;
+						div=2;
+						i=0;
+						while(fab!=1)
+							{
+								if(fab%div==0)
+									{
+										brr[i]=div;
+										fab=fab/div;
+										div--;i++;
+									}
+								div++;
+							}
+						l=i;
+						for(i=0;i<k;i++)
+							for(j=0;j<l;j++)
+								{
+									if(arr[i]==brr[j])
+										{
+											flag=1;
+											fac=arr[i];
+                    }
+            }
+        }
+        printf("%ld %ld\n",c,fac);
+//end:
+        }
+return 0;
+}

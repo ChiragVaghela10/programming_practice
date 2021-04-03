@@ -1,0 +1,84 @@
+/****************************
+Def :(Definition Of The Program)
+to make a cardiogragh. which display graph of pulses of heart in recangular box of specific size in random manner upto infinite, e.g.
+	_________________________________
+	|				 |
+	| /\	/\   /\			 |
+	|/--\----/\--/---\/---\--------------------------|
+	|    \  /  \/	         \......		 |
+	|___\/____________________________|
+//Name:(Definition Writer)
+Chirag Vaghela
+//Name:(First Developer)
+Chirag Vaghela
+//Time:(Latest time of Job done By First Developer)
+3/2/2011 8:30pm
+//Name:(Last Developer)
+Chirag Vaghela
+//Time:(Latest time of Job done By Last Developer)
+6/2/2011 9:36pm
+//Status: Completed/Not Completed
+completed
+************************/
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<iostream.h>
+#include<graphics.h>
+#include<dos.h>
+
+void main()
+{while(!kbhit())
+
+	{int i,k=1,pt,*nums;
+	int gdriver = DETECT, gmode, errorcode;
+	clrscr();
+	/* initialize graphics mode */
+	initgraph(&gdriver, &gmode, "");
+
+	/* read result of initialization */
+	errorcode = graphresult();
+
+	if (errorcode != grOk)  /* an error occurred */
+	{
+	   printf("Graphics error: %s\n", grapherrormsg(errorcode));
+	   printf("Press any key to halt:");
+	   getch();
+	   exit(1);             /* return with error code */
+	}
+
+	rectangle(60,100,600,400);
+	rectangle(40,80,620,420);
+	line(60,250,600,250);
+	for(i=0;k<=18;i++)
+		{
+		pt=rand()%400;
+		if( pt>=100 )
+			{*(nums+k)=pt;
+			k++;
+			}
+		}
+
+	for(i=1;i<18;i++)
+		{cout<<*(nums+i)<<"\n";
+		}
+
+	for(i=1;i<=18;i++)
+		{setcolor(RED);
+		if(i==1)
+			{line(60,250,(60+(30*i)),*(nums+i));
+			delay(150);
+			}
+		else
+			{line((60+30*(i-1)),*(nums+(i-1)),(60+30*i),*(nums+i));
+			delay(150);
+			}
+		setcolor(BLUE);
+		settextstyle(1,0,2);
+		outtextxy(0,430,"Developed By Chirag Vaghela(chiravaghela10@ymail.com)\n");
+		outtextxy(0,450,"Press any key to stop:");
+		}
+cleardevice();
+}
+
+}

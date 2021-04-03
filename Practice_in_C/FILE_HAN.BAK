@@ -1,0 +1,44 @@
+#include<iostream.h>
+#include<conio.h>
+#include<fstream.h>
+#include<string.h>
+void correction(char *,int );
+int main()
+{ifstream fin;
+ofstream fout;
+clrscr();
+fin.open("C:\\tc\\abc.txt");
+fout.open("def.txt");
+if(fin && fout)
+	{char text[80];
+	int len;
+	while(!fin.eof())
+		{fin.getline(text,80);
+		cout<<text<<"\n";
+		len=strlen(text);
+		correction(text,len);
+		cout<<"CORRECTED LINE:"<<text<<"\n\n";
+		fout.write(text,len);
+		}
+	fin.close();
+	fout.close();
+	getch();
+	return 0;
+}
+
+else
+	{cout<<"Error!";
+	getch();
+	return 1;
+	}
+}
+void correction(char *data,int lim)
+{for(int i=0;i<lim;i++)
+	{if(*(data+i)==' ' && *(data+i-1)==' ' )
+		{for(int j=i;j<lim;j++)
+			{*(data+j)=*(data+j+1);
+			i=0;
+			}
+		}
+	}
+}

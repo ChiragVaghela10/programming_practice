@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+void main()
+{char string1[1500]="FourscoreandsevenyearsagoourfaathersbroughtforthonthiscontainentanewnationconceivedinzLibertyanddedicatedtothepropositionthatallmenarecreatedequalNowweareengagedinagreahtcivilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisfor";
+char string2[]="usthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
+char/* string1[100]="I like racecars that",*/temp[1500]={'\0'},sub_s1[1500]={'\0'};
+//char string2[]="chiragarihc go fast.";
+int i,s1,N=0,j,k,a;
+clrscr();
+s1=strlen(string1);
+for(i=0;string2[i]!='\0';i++)
+	{string1[i+s1]=string2[i];
+	}
+string2[i]='\0';                //concatenating string//
+
+printf("%s",string1);
+printf("\n\n");
+
+s1=strlen(string1);
+
+for(i=0;i<s1;i++)
+	{for(j=s1-1;j>i;j--)
+		{if(string1[i]==string1[j])
+			{for(k=0;k<=(j-i);k++)
+				{sub_s1[k]=string1[i+k];
+				temp[k]=string1[j-k];}
+			//printf("%s\t%s\n",sub_s1,temp);
+			if(strcmpi(sub_s1,temp)==0 && strlen(temp)>N )
+				{N=strlen(temp);
+				printf("%d\t%s\n",N,temp);}
+			for(a=0;a<1500;a++)
+			{sub_s1[a]='\0';
+			temp[a]='\0';}
+			}
+		}
+	}
+printf("\n\n\nprogram by CHIRAG VAGHELA:\nchiragvaghela10@ymail.com");
+getch();
+}
+/*
+Fourscoreandsevenyearsagoourfaathersbroughtforthonthiscontainentanewnationconcei
+vedinzLibertyanddedicatedtothepropositionthatallmenarecreatedequalNowweareengage
+dinagreahtcivilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicated
+canlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportio
+nofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmight
+liveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedica
+tewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggle
+dherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittle
+notlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthel
+ivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfa
+rsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeu
+sthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethela
+stpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinva
+inthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeople
+bythepeopleforthepeopleshallnotperishfromtheearth
+
+3       eve
+7       ranynar
+*/

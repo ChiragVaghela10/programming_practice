@@ -1,0 +1,243 @@
+/**********************************************
+//Def :(Definition Of The Program)
+To make a program that enables the feature of messaging in C++.
+//Name:(Definition Writer)
+Chirag Vaghela
+//Name:(First Developer)
+Atman Dhol
+//Time:(Latest time of Job done By First Developer)
+8:30 23/2/2011
+//Name:(Last Developer)
+Chirag Vaghela
+//Time:(Latest time of Job done By Last Developer)
+1:30 24/2/2011
+//Status: Completed/Not Completed
+Completed
+**********************************************/
+# include <graphics.h>
+# include <conio.h>
+# include <stdio.h>
+# include <iostream.h>
+int xco=385,yco=90;
+void check(int a,char c);
+void main()
+{clrscr();
+
+	int driver=DETECT,mode;	int maxx,maxy;
+	maxx=getmaxx(); maxy=getmaxy();
+	initgraph(&driver,&mode,"C:\\tc\\bgi\\");
+	int poly1[8];
+	poly1[0]=350 +20;poly1[1]=35 ;poly1[2]=350 +200;poly1[3]=35 ;
+	poly1[4]=350 +200;poly1[5]=35 +400+15;poly1[6]=350 +20;poly1[7]=35 +400+15;
+	setcolor(15);setfillstyle(SOLID_FILL,0);fillpoly(4,poly1);
+	poly1[0]=poly1[0]+10;poly1[1]=poly1[1]+10+20;poly1[2]=poly1[2]-10;
+	poly1[3]=poly1[3]+10+20;poly1[4]=poly1[4]-10;poly1[5]=poly1[3]+170;
+	poly1[6]=poly1[6]+10;poly1[7]=poly1[1]+170;
+	setfillstyle(SOLID_FILL,15);fillpoly(4,poly1);int swi[8];
+	swi[0]=370+10;	swi[1]=300-10;	swi[2]=370+55;	swi[3]=300-10;
+	swi[4]=370+55;	swi[5]=300+20;	swi[6]=370+10;	swi[7]=300+20;
+	setfillstyle(SOLID_FILL,8);	fillpoly(4,swi);
+	swi[0]=370+10+55; swi[1]=300-10; swi[2]=370+55+55; swi[3]=300-10;
+	swi[4]=370+55+55; swi[5]=300+20; swi[6]=370+10+55; swi[7]=300+20;
+	setfillstyle(SOLID_FILL,8);  fillpoly(4,swi);
+	swi[0]=370+10+55+55; swi[1]=300-10; swi[2]=370+55+55+55;
+	swi[3]=300-10; swi[4]=370+55+55+55; swi[5]=300+20;
+	swi[6]=370+10+55+55; swi[7]=300+20;
+	setfillstyle(SOLID_FILL,8);	fillpoly(4,swi);
+	swi[0]=370+10+55; swi[1]=300-10+40; swi[2]=370+55+55;
+	swi[3]=300-10+40; swi[4]=370+55+55; swi[5]=300+20+40;
+	swi[6]=370+10+55; swi[7]=300+20+40; setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10;	swi[1]=300-10+40; swi[2]=370+55; swi[3]=300-10+40;
+	swi[4]=370+55;	swi[5]=300+20+40; swi[6]=370+10; swi[7]=300+20+40;
+	setfillstyle(SOLID_FILL,8); fillpoly(4,swi);
+	swi[0]=370+10+55+55; swi[1]=300-10+40;	swi[2]=370+55+55+55;
+	swi[3]=300-10+40; swi[4]=370+55+55+55;	swi[5]=300+20+40;
+	swi[6]=370+10+55+55; swi[7]=300+20+40;	setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10+55; swi[1]=300-10+40+40; swi[2]=370+55+55;
+	swi[3]=300-10+40+40; swi[4]=370+55+55; 	swi[5]=300+20+40+40;
+	swi[6]=370+10+55; swi[7]=300+20+40+40; 	setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10+55+55; swi[1]=300-10+40+40; swi[2]=370+55+55+55;
+	swi[3]=300-10+40+40; swi[4]=370+55+55+55; swi[5]=300+20+40+40;
+	swi[6]=370+10+55+55; swi[7]=300+20+40+40; setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10;	swi[1]=300-10+40+40; swi[2]=370+55;
+	swi[3]=300-10+40+40; swi[4]=370+55; swi[5]=300+20+40+40;
+	swi[6]=370+10;	swi[7]=300+20+40+40; setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10; 	swi[1]=300-10-40; swi[2]=370+55; swi[3]=300-10-40;
+	swi[4]=370+55; 	swi[5]=300+20-40; swi[6]=370+10; swi[7]=300+20-40;
+	setfillstyle(SOLID_FILL,2); fillpoly(4,swi);
+	swi[0]=370+10+110; swi[1]=300-10-40; swi[2]=370+55+110;
+	swi[3]=300-10-40; swi[4]=370+55+110; swi[5]=300+20-40;
+	swi[6]=370+10+110; swi[7]=300+20-40; setfillstyle(SOLID_FILL,4);
+	fillpoly(4,swi);
+	swi[0]=370+10+110; swi[1]=300-10+120; swi[2]=370+55+110;
+	swi[3]=300-10+120; swi[4]=370+55+110; swi[5]=300+20+120;
+	swi[6]=370+10+110; swi[7]=300+20+120; setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10+55; swi[1]=300-10+120; swi[2]=370+55+55;
+	swi[3]=300-10+120; swi[4]=370+55+55; swi[5]=300+20+120;
+	swi[6]=370+10+55; swi[7]=300+20+120; setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	swi[0]=370+10; swi[1]=300-10+120; swi[2]=370+55;
+	swi[3]=300-10+120; swi[4]=370+55; swi[5]=300+20+120;
+	swi[6]=370+10; swi[7]=300+20+120; setfillstyle(SOLID_FILL,8);
+	fillpoly(4,swi);
+	circle(457,265,6); setcolor(6);	circle(457,265,7); circle(457,265,8);
+	circle(457,265,9); setcolor(15); circle(457,265,10);
+	circle(457,265,11);
+	outtextxy(435,48,"NOKIA");setcolor(0);
+	outtextxy(385,70,"New Message..");
+
+    //	for(int i=90;i<=210;i=i+10)
+    //	outtextxy(380,i,"_____________________");
+	outtextxy(375,223," Options        Back");
+	setcolor(15);
+	settextstyle(SIMPLEX_FONT,HORIZ_DIR,1);
+	outtextxy(385,292,"1");outtextxy(385+55,292,"2");
+	outtextxy(385+110,292,"3");outtextxy(385,292+40,"4");
+	outtextxy(385+55,292+40,"5");outtextxy(385+110,292+40,"6");
+	outtextxy(385,292+80,"7");outtextxy(385+55,292+80,"8");
+	outtextxy(385+110,292+80,"9");
+	outtextxy(385,292+120,"*");outtextxy(385+55,292+120,"0");
+	outtextxy(385+110,292+120,"#");
+	setcolor(11); settextstyle(SMALL_FONT,HORIZ_DIR,4);
+	outtextxy(400,300,",./");
+	outtextxy(400+55,300,"abc");
+	outtextxy(400+110,300,"def");
+	outtextxy(400,300+40,"ghi");
+	outtextxy(400+55,300+40,"jkl");
+	outtextxy(400+110,300+40,"mno");
+	outtextxy(400,300+80,"pqrs");
+	outtextxy(400+55,300+80,"tuv");
+	outtextxy(400+110,300+80,"wxyz");
+	outtextxy(400,300,"");
+	outtextxy(400+55,300,"");
+	outtextxy(400+110,300,"");
+
+
+settextstyle(BOLD_FONT,HORIZ_DIR,1);
+outtextxy(30,30,"Enter the no.s to type ");
+outtextxy(30,60,"the message");
+setcolor(2);
+outtextxy(30,200,"Press z to stop");
+setcolor(11);
+settextstyle(DEFAULT_FONT,HORIZ_DIR,1);
+setcolor(4);
+char str[200]={'\0'};
+int i=0;
+int count=1;
+str[i]=getch();
+i++;
+while(str[i-1]!='z')
+	{if(kbhit())
+		{
+		str[i]=getch();
+		if(str[i]==str[i-1])
+			{
+			count++;
+			}
+		else
+			{check(count,str[i-1]);
+
+			if(str[i]==' ')
+				{i++;
+				str[i]=getch();
+				}
+
+			count=1;
+			}
+		i++;
+		}
+	}
+
+outtextxy(5,450,str);
+getch();
+closegraph();
+}
+
+void check(int a,char c)
+{switch(c)
+	{case '0':cout<<" "; break;
+	case '1':switch(a)
+		{case 1:outtextxy(xco,yco,".");
+		break;
+		case 2:outtextxy(xco,yco,",");
+		break;
+		} break;
+	case '2':switch(a)
+		{case 1:outtextxy(xco,yco,"a");
+		break;
+		case 2:outtextxy(xco,yco,"b");
+		break;
+		case 3:outtextxy(xco,yco,"c");
+		} break;
+	case '3':switch(a)
+		{case 1:outtextxy(xco,yco,"d");
+		break;
+		case 2:outtextxy(xco,yco,"e");
+		break;
+		case 3:outtextxy(xco,yco,"f");
+		} break;
+	case '4':switch(a)
+		{case 1:outtextxy(xco,yco,"g");
+		break;
+		case 2:outtextxy(xco,yco,"h");
+		break;
+		case 3:outtextxy(xco,yco,"i");
+		} break;
+		case '5':switch(a)
+		{case 1:outtextxy(xco,yco,"j");
+		break;
+		case 2:outtextxy(xco,yco,"k");
+		break;
+		case 3:outtextxy(xco,yco,"l");
+		} break;
+
+	case '6':switch(a)
+		{case 1:outtextxy(xco,yco,"m");
+		break;
+		case 2:outtextxy(xco,yco,"n");
+		break;
+		case 3:outtextxy(xco,yco,"o");
+		} break;
+
+	case '7':switch(a)
+		{case 1:outtextxy(xco,yco,"p");
+		break;
+		case 2:outtextxy(xco,yco,"q");
+		break;
+		case 3:outtextxy(xco,yco,"r");
+		break;
+		case 4:outtextxy(xco,yco,"s");
+		} break;
+
+	case '8':switch(a)
+		{case 1:outtextxy(xco,yco,"t");
+		break;
+		case 2:outtextxy(xco,yco,"u");
+		break;
+		case 3:outtextxy(xco,yco,"v");
+		} break;
+
+	case '9':switch(a)
+		{case 1:outtextxy(xco,yco,"w");
+		break;
+		case 2:outtextxy(xco,yco,"x");
+		break;
+		case 3:outtextxy(xco,yco,"y");
+		break;
+		case 4:outtextxy(xco,yco,"z");
+		} break;
+
+	}
+
+	xco=xco+10;
+	if(xco==535 && yco<210)
+	{yco=yco+10;
+	xco=385;
+	}
+}

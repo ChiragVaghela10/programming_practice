@@ -1,0 +1,98 @@
+//Def :(Definition Of The Program)
+First ask user to enter how many prime no.(s) to enter and To find unknown digit of the Prime Number
+//Name:(Definition Writer)HASIT BHATT 
+//Name:(First Developer)
+CHIRAG VAGHELA
+//Time:(Latest time of Job done By First Developer)
+13/2/2011
+//Name:(Last Developer)
+CHIRAG VAGHELA
+//Time:(Latest time of Job done By Last Developer)
+13/2/2011
+//Status: Completed/Not Completed
+Not Completed    //still have limitation that each no. shuld have just 1 '?' e.g. 2?12 the case like 2??2 has not been included yet!! //
+
+/* '0'=48 '9'=57 '?'=63*/
+#include<iostream.h>
+#include<conio.h>
+#include<math.h>
+int check(int p);
+int main()
+{ int number,int_num[10][10],numbers[10]={0},*ptr[50],counter=0,prime_check;
+    char user_num[10][10];
+for(int i=0;i<10;i++)
+	{for(int j=0;j<10;j++)
+		{int_num[i][j]=-1;}
+	}
+
+clrscr();
+cout<<"Enter how many numbers you want to enter?:";
+cin>>number;
+for(i=0;i<number;i++)
+	{cout<<"Enter the no.:";
+	cin>>user_num[i];
+	}
+for(i=0;i<number;i++)
+	{for(int j=0;j<10;j++)
+		{if(user_num[i][j]>47 && user_num[i][j]<58)
+			int_num[i][j]=user_num[i][j]-48;
+		else if(user_num[i][j]==63)
+			{int_num[i][j]='?';}
+		}
+	}
+
+/*for(i=0;i<number;i++)
+	{for(int j=0;int_num[i][j]!=-1;j++)
+	cout<<int_num[i][j]<<" ";;
+
+	cout<<"\n";
+	}         */		//to see how they are mapped in 2-d array
+
+for(i=0;i<number;i++)
+	{for(int j=0;int_num[i][j]!=-1;j++)
+		{if(int_num[i][j]==63)
+			{ptr[counter]=&int_num[i][j];
+			counter++;}
+		}
+	}
+
+for(int k=0;k<10;k++)
+	{for(int a=0;a<counter;a++)
+		{*(ptr[a])=k;}
+
+
+	for(i=0;i<number;i++)
+		{for(int j=0;int_num[i][j]!=-1;j++);
+		for(int p=j-1,q=0;p>=0;p--,q++)
+			{numbers[i]+=(int_num[i][p]*pow(10,q));}
+		}
+
+	for(i=0;i<number;i++)
+		{prime_check=check(numbers[i]);
+
+		if(prime_check==1)
+		cout<<"prime no:"<<numbers[i]<<"\n";
+		}
+
+	for(i=0;i<10;i++)
+		numbers[i]=0;
+
+	cout<<"\n\n";
+	}
+
+
+
+getch();
+return(1);
+}
+
+int check(int p)
+{for(int i=2;i<p;i++)
+	{if(p%i==0)
+	break;
+	}
+if(i==p)
+{return(1);}
+else
+return(0);
+}

@@ -1,0 +1,36 @@
+#include<conio.h>
+#include<stdio.h>
+#include<stdlib.h>
+
+void func(int *);
+void main()
+{ int *arr,i,N,RES;
+enum operate {plus,minus,mul,div}
+
+printf("Enter how many no.(s) you want to operate of:");
+scanf("%d",&N);
+if(arr=(int *)malloc(sizeof(int)*N)!=NULL)
+printf("\nENTER THE NO.(s)(result excluded):");
+for(i=0;i<N;i++)
+	{
+	scanf("%d",(arr+i));
+	}
+printf("\nENTER THE RESULT:");
+scanf("%d",&RES);
+
+printf("\n\n");
+
+for(i=0;i<N;i++)
+	{
+	printf("%d\n",*(arr+i));
+	}
+
+printf("\n\n");
+func(arr);
+
+getch();
+}
+/*void func(int *opr)
+{
+} */
+
